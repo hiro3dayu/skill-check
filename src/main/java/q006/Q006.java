@@ -1,8 +1,6 @@
 package q006;
 
-import q006.value.DecimalValue;
-import q006.value.IValue;
-import q006.value.PlusValue;
+import q006.value.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +41,15 @@ public class Q006 {
                 case "+":   // 足し算
                     resultList.add(new PlusValue());
                     break;
+                case "-":   // 引き算
+                    resultList.add(new MinusValue());
+                    break;
+                case "*":   // 掛け算
+                    resultList.add(new MultiValue());
+                    break;
+                case "/":   // 割り算
+                    resultList.add(new DiviValue());
+                    break;
                 default:    // その他は数値として扱う
                     resultList.add(new DecimalValue(text));
                     break;
@@ -50,5 +57,11 @@ public class Q006 {
         }
         return resultList;
     }
+    public static void main(String[] args) {
+        String input = "3 1.1 0.9 + 2.0 * -";
+        System.out.print("入力) " + input + "\n");
+        List<IValue> result = parseLine(input);
+        System.out.print("出力) " + result + "\n");
+    }
 }
-// 完成までの時間: xx時間 xx分
+// 完成までの時間: 03時間 30分
