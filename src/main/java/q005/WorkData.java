@@ -6,17 +6,24 @@ package q005;
  */
 public class WorkData {
     /** 社員番号 */
-    private String number;
+    public String number;
 
     /** 部署 */
-    private String department;
+    public String department;
 
     /** 役職 */
-    private String position;
+    public String position;
 
     /** Pコード */
-    private String pCode;
+    public String pCode;
 
     /** 作業時間(分) */
-    private int workTime;
+    public int workTime;
+
+    public WorkData(String number, String department, String position, String pCode, int workTime){
+        this.number = number;
+        this.department = department;
+        this.position = position;
+        this.pCode = pCode;
+        this.workTime = workTime;
 }
