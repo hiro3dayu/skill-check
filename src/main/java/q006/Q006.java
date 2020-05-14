@@ -2,8 +2,10 @@ package q006;
 
 import q006.value.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Q006 空気を読んで改修
@@ -60,8 +62,15 @@ public class Q006 {
     public static void main(String[] args) {
         String input = "3 1.1 0.9 + 2.0 * -";
         System.out.print("入力) " + input + "\n");
-        List<IValue> result = parseLine(input);
-        System.out.print("出力) " + result + "\n");
+        List<IValue> resultline = parseLine(input);
+        System.out.print(resultline + "\n");
+        Stack result = new Stack();
+        for (int i = 0; i < resultline.size();i++) {
+            resultline.get(i).execute(result);
+            System.out.print(result.peek() + "\n");
+            System.out.print(result + "\n");
+        }
+        System.out.print("出力) " + result.peek() + "\n");
     }
 }
 // 完成までの時間: 03時間 30分
